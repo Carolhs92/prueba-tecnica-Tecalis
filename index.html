@@ -74,8 +74,95 @@
         </section>
     </main>
 
-    <footer>
-        </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoSection = document.querySelector('.info-section');
+            const listItemBtns = infoSection.querySelectorAll('.list-item-btn');
+            const desktopTabContent = infoSection.querySelector('.desktop-tab-content');
+
+            function handleTabClick(event) {
+                event.preventDefault();
+
+                const clickedBtn = event.currentTarget;
+                const targetTabPane = clickedBtn.querySelector('.tab-pane');
+
+                // Punto de quiebre para que coincida con el CSS
+                const isDesktop = window.matchMedia('(min-width: 1307px)').matches;
+
+                if (isDesktop) {
+                    // Comportamiento para Escritorio (Tabs)
+                    listItemBtns.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    clickedBtn.classList.add('active');
+
+                    const newImageSrc = targetTabPane.querySelector('img').src;
+                    desktopTabContent.querySelector('img').src = newImageSrc;
+
+                } else {
+                    // Comportamiento para Móvil/Tablet (Acordeón)
+                    if (clickedBtn.classList.contains('active')) {
+                        // Si el botón clicado ya está activo, ciérralo
+                        clickedBtn.classList.remove('active');
+                        targetTabPane.style.maxHeight = null; // Cierra el acordeón
+                    } else {
+                        // Cierra cualquier acordeón abierto
+                        listItemBtns.forEach(btn => {
+                            if (btn !== clickedBtn && btn.classList.contains('active')) {
+                                btn.classList.remove('active');
+                                btn.querySelector('.tab-pane').style.maxHeight = null;
+                            }
+                        });
+
+                        // Abre el acordeón clicado
+                        clickedBtn.classList.add('active');
+                        targetTabPane.style.maxHeight = targetTabPane.scrollHeight + 'px';
+                    }
+                }
+            }
+
+            listItemBtns.forEach(btn => {
+                btn.addEventListener('click', handleTabClick);
+            });
+
+            // Inicializar la primera pestaña/acordeón como activa al cargar la página
+            const firstListItemBtn = listItemBtns[0];
+            if (firstListItemBtn) {
+                // Actualiza el punto de quiebre para que coincida con el CSS
+                const isDesktop = window.matchMedia('(min-width: 1307px)').matches;
+                if (isDesktop) {
+                    firstListItemBtn.classList.add('active');
+                    const initialImageSrc = firstListItemBtn.querySelector('.tab-pane img').src;
+                    desktopTabContent.querySelector('img').src = initialImageSrc;
+                }
+            }
+
+            // Manejar el redimensionamiento de la ventana para ajustar el comportamiento
+            window.addEventListener('resize', () => {
+                // Punto de quiebre para que coincida con el CSS
+                const isDesktop = window.matchMedia('(min-width: 1307px)').matches;
+                listItemBtns.forEach(btn => {
+                    const tabPane = btn.querySelector('.tab-pane');
+                    if (isDesktop) {
+                        // En desktop, asegúrate de que los contenidos del acordeón estén ocultos
+                        tabPane.style.maxHeight = null; // Limpiamos el estilo inline
+                        if (btn.classList.contains('active')) {
+                            const newImageSrc = btn.querySelector('.tab-pane img').src;
+                            desktopTabContent.querySelector('img').src = newImageSrc;
+                        }
+                    } else {
+                        // En móvil/tablet, si un acordeón está activo, ajusta su max-height
+                        if (btn.classList.contains('active')) {
+                            tabPane.style.maxHeight = tabPane.scrollHeight + 'px';
+                        } else {
+                            tabPane.style.maxHeight = null;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
 
 </body>
 </html>

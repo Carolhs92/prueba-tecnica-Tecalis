@@ -1,20 +1,17 @@
-/* --- Importar fuentes de Google Fonts --- */
+/* --- Global Styles & Variables --- */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* --- 0. Variables CSS (UI Kit Colores) --- */
 :root {
-    --color-primary-dark: #120F18; /* Color 01 - Texto principal, fondos oscuros */
-    --color-secondary-dark: #27415C; /* Color 02 - Botones hover, texto secundario */
-    --color-accent-blue: #5C9DDC; /* Color 03 - Enlaces, bordes, fondos de acordeón */
-    --color-accent-cyan: #46D6DD; /* Color 04 - Botones, highlights */
-    --color-light-blue: #DDFFFF; /* Color 05 - Fondo de tab activa */
-    --color-white: #FFFFFF; /* Color 06 - Fondos, texto claro */
+    --color-primary-dark: #120F18;
+    --color-secondary-dark: #27415C;
+    --color-accent-blue: #5C9DDC;
+    --color-accent-cyan: #46D6DD;
+    --color-light-blue: #DDFFFF;
+    --color-white: #FFFFFF;
 
-    /* Tipografía (solo para referencia, se aplicará a elementos específicos) */
     --font-montserrat: 'Montserrat', sans-serif;
 }
 
-/* --- 1. Resets y Estilos Generales --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -48,11 +45,11 @@ a {
     padding: 20px 0;
 }
 
-/* --- 2. Estilos de Tipografía según UI Kit --- */
+/* --- Typography --- */
 h1 {
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 48px; /* Desktop size */
+    font-size: 48px;
     line-height: 1;
     color: var(--color-primary-dark);
 }
@@ -60,28 +57,28 @@ h1 {
 h2 {
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 36px; /* Desktop size */
+    font-size: 36px;
     line-height: 1;
     color: var(--color-primary-dark);
 }
 
-h3 { /* Usado para títulos dentro de acordeones/tabs (24px para contenido, 18px para header acordeón) */
+h3 {
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 24px; /* Default for general H3 */
+    font-size: 24px;
     line-height: 1;
     color: var(--color-primary-dark);
 }
 
-.btn h4 { /* Asumo el texto del botón es un h4 semánticamente o similar */
+.btn h4 {
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 18px; /* H4 size */
+    font-size: 18px;
     line-height: 24px;
     color: inherit;
 }
 
-h5 { /* Usado para texto de button-nav si lo hubiera, o texto de tab selector en desktop */
+h5 {
     font-family: var(--font-montserrat);
     font-weight: 700;
     font-size: 16px;
@@ -97,7 +94,7 @@ p {
     color: var(--color-primary-dark);
 }
 
-.text-small { /* Para el texto de 14px */
+.text-small {
     font-family: var(--font-montserrat);
     font-weight: 400;
     font-size: 14px;
@@ -106,14 +103,14 @@ p {
 }
 
 
-/* --- 3. Estilos de la Sección Hero (Mobile First) --- */
+/* --- Hero Section (Mobile First) --- */
 .hero-section {
     position: relative;
     padding: 40px 0;
     text-align: center;
     background-color: var(--color-white);
     overflow: hidden;
-    background-image: none; /* No hay imagen de fondo en móvil */
+    background-image: none;
 }
 
 .hero-section .logo img {
@@ -121,11 +118,10 @@ p {
     height: 48px;
     margin: 0 auto;
     margin-bottom: 80px;
-
 }
 
 .hero-content h1 {
-    font-size: 36px; /* H1 en móvil */
+    font-size: 36px;
     margin-bottom: 15px;
     padding: 0 15px;
 }
@@ -143,11 +139,11 @@ p {
     height: 56px;
     padding: 16px 32px;
     border-radius: 16px;
-    background-color: var(--color-accent-cyan); /* #46D6DD */
-    color: var(--color-white); /* Texto del botón, asumo blanco para contraste */
+    background-color: var(--color-accent-cyan);
+    color: var(--color-white);
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 18px; /* H4 size */
+    font-size: 18px;
     line-height: 24px;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -155,8 +151,8 @@ p {
 }
 
 .btn:hover {
-    background-color: var(--color-secondary-dark); /* #27415C */
-    color: var(--color-white); /* Texto blanco en hover */
+    background-color: var(--color-secondary-dark);
+    color: var(--color-white);
 }
 
 .hero-image-wrapper {
@@ -166,25 +162,29 @@ p {
 }
 
 .hero-image-desktop {
-    display: none; /* Oculta imagen de desktop en móvil */
+    display: none;
 }
 
 .hero-image-mobile {
+    margin: auto;
     display: block;
-    width: 648px;
-    height: 500px;
+    width: 366px;
+    height: 282.41px;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
 }
 
-/* --- 4. Estilos de la Sección Inferior (Mobile First - Acordeón) --- */
+/* --- Info Section (Mobile First - Accordion) --- */
 .tab-image{
-    display: none;
+    display: none; /* Hidden by default, shown in desktop layout for main tab image */
 }
 
 .info-content{
-    display: none;
+    display: flex; /* Displayed by default for mobile and tablet */
+    flex-direction: column;
+    gap: 15px;
 }
+
 .info-section {
     padding: 60px 0;
     text-align: center;
@@ -192,24 +192,17 @@ p {
 }
 
 .info-section h2 {
-    font-size: 24px; /* H3 en móvil */
+    font-size: 24px;
     margin-bottom: 30px;
     padding: 0 15px;
     color: var(--color-primary-dark);
 }
 
-.info-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio entre los elementos del acordeón */
-}
-
-/* El contenido principal de tab para desktop está oculto en móvil */
+/* info-media is not present in the HTML provided, but ensuring it's hidden */
 .info-media {
-    display: none; /* Ocultamos la imagen fija del portátil en móvil */
+    display: none;
 }
 
-/* Contenedor de los selectores/acordeones */
 .info-selectors {
     display: flex;
     flex-direction: column;
@@ -217,224 +210,209 @@ p {
     padding: 0 10px;
 }
 
-/* Estilos de cada elemento de Acordeón/Botón de Lista */
 .list-item-btn {
     display: block;
     background-color: var(--color-white);
     border-radius: 8px;
     border: 1px solid var(--color-accent-blue);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    overflow: hidden; /* Importante para el colapsable */
+    overflow: hidden;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 }
 
-
-/* Encabezado del Acordeón */
 .list-item-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    color: var(--color-primary-dark); /* Texto siempre negro */
-    font-size: 18px; /* H4 size para este texto */
+    color: var(--color-primary-dark);
+    font-size: 18px;
     font-weight: 700;
     line-height: 24px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Para el cambio de estado activo */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .list-item-header h3 {
-    font-size: 18px; /* H4 size */
+    font-size: 18px;
     line-height: 24px;
     margin: 0;
     color: inherit;
 }
 
-/* Icono de flecha del acordeón */
 .arrow-icon {
     display: inline-block;
     width: 24px;
     height: 24px;
     line-height: 1;
     text-align: center;
-    transition: transform 0.3s ease; /* Animación de rotación */
+    transition: transform 0.3s ease;
 }
 
 .arrow-icon::after {
-    content: '\203A'; /* Flecha derecha Unicode */
+    content: '\203A';
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--color-accent-blue);
 }
 
-/* Cuerpo del Acordeón (contenido expandible) */
-.tab-pane { /* Sigue siendo tab-pane por nombre pero es el cuerpo del acordeón */
-    max-height: 0; /* Oculto por defecto */
+.tab-pane {
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Animación de colapso */
+    transition: max-height 0.3s ease-out;
     background-color: var(--color-white);
-    border-top: 1px solid #eeeeee; /* Línea divisoria */
+    border-top: 1px solid #eeeeee;
     border-radius: 0 0 8px 8px;
-    padding: 0 20px; /* Sin padding cuando colapsado */
+    padding: 0 20px;
     text-align: left;
+    box-sizing: border-box;
 }
 
-.tab-pane h3 { /* Título dentro del contenido expandido */
-    font-size: 24px; /* H3 size */
+.tab-pane h3 {
+    font-size: 24px;
     margin-top: 20px;
-    margin-bottom: 15px;
-    color: var(--color-primary-dark);
+    margin-bottom: 20px;
 }
 
 .tab-pane img {
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
-/* Estado ACTIVO del Acordeón (clase 'active' añadida por JS) */
 .list-item-btn.active {
     background-color: var(--color-light-blue);
     border-color: var(--color-accent-blue);
 }
 
 .list-item-btn.active .arrow-icon {
-    transform: rotate(90deg); /* Rota la flecha */
+    transform: rotate(90deg);
 }
 
 .list-item-btn.active .tab-pane {
-    max-height: 400px; /* Altura máxima al expandir */
+    max-height: 400px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 
-/* --- 5. Media Queries para Responsive --- */
+/* --- Media Queries --- */
 
-/* --- Tabletas (768px y más) --- */
-@media (min-width: 768px) {
-    /* Hero Section - Desktop layout for tablet */
+/* --- Tablets --- */
+@media (min-width: 768px) and(min-width: 1307px) {
+
+    /* Hero Section: Looks exactly like Mobile */
     .hero-section {
-        padding: 80px 0;
-        /* No background-image en tablet */
-        background-image: none; /* Asegurar que no aparezca en tablet si no debe */
-        min-height: auto; /* Dejar que el contenido defina la altura */
+        padding: 40px 0;
+        background-image: none;
+        min-height: auto;
+        text-align: center;
     }
-
     .hero-content h1 {
-        font-size: 48px;
-        padding: 0 40px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-        padding: 0 50px;
-    }
-
-    .hero-image-desktop {
-        display: block;
-        width: 70%;
-        margin: 60px auto 0 auto;
-    }
-
-    /* Sección Inferior - Layout de dos columnas (Imagen fija + Tabs) */
-    .info-section h2 {
         font-size: 36px;
-        text-align: left;
+        padding: 0 15px;
+    }
+    .hero-content p {
+        padding: 0 20px;
+    }
+    .hero-image-desktop {
+        display: none;
+    }
+    .hero-image-mobile {
+        width: 366px;
+        height: 282.41px;
+        margin: auto;
     }
 
+    /* Info Section: Looks exactly like Mobile (Accordion) */
+    .info-section {
+        padding: 60px 0;
+        text-align: center;
+    }
+    .info-section h2 {
+        font-size: 24px;
+        text-align: center;
+        width: auto;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .info-content {
-        flex-direction: row; /* Layout de dos columnas */
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 40px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
-    /* Columna de la izquierda: Imagen fija del portátil */
-    .info-media {
-        display: block; /* Visible en tablet */
-        flex: 0 0 60%;
-        max-width: 60%;
-        background-color: var(--color-primary-dark); /* Fondo oscuro */
-        border-radius: 8px;
-        overflow: hidden;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    /* Hide Desktop-specific elements in Tablet */
+    .info-main-content {
+        display: none;
     }
-    .info-media img {
-        border-radius: 8px;
+    .desktop-tab-content {
+        display: none;
+    }
+    .desktop-tab-content .tab-image { /* Specific rule to hide the main tab image */
+        display: none;
+    }
+    .info-media { /* Ensures info-media is hidden if present */
+        display: none;
     }
 
-    /* Columna de la derecha: Los selectores de las Tabs */
+    /* Info Selectors (Accordion in Tablet) */
     .info-selectors {
-        flex: 0 0 35%;
-        max-width: 35%;
-        padding: 0;
-        gap: 0;
-        /* No hay borde en el grupo de tabs */
+        flex-direction: column;
+        gap: 0; /* No gap between accordion items */
+        padding: 0 10px;
+        max-width: none;
+        flex: none;
+        width: 100%;
         border-radius: 8px;
-        overflow: hidden;
-    }
-
-    /* Estilos de los botones de tab (en tablet y desktop) */
-    .list-item-btn {
-        background-color: var(--color-white);
         border: none;
         box-shadow: none;
-        border-radius: 0;
     }
-
+    .list-item-btn {
+        border: 1px solid var(--color-accent-blue);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .info-selectors .list-item-btn:last-child {
+        margin-bottom: 0;
+    }
     .list-item-header {
-        padding: 16px 20px;
-        border-bottom: none; /* No hay línea inferior */
-        color: var(--color-primary-dark);
-        font-size: 16px; /* H5 para texto de tab */
-        line-height: 20px;
-        justify-content: flex-start;
+        justify-content: space-between;
+        font-size: 18px;
     }
-
-    .info-selectors .list-item-btn:last-child .list-item-header {
-        border-bottom: none;
+    .list-item-header h3 {
+        font-size: 18px;
     }
-
-    /* Ocultar el cuerpo del acordeón en modo tab (tablet y desktop) */
     .list-item-btn .tab-pane {
-        display: none;
-    }
-
-    /* Ocultar la flecha en modo tab (tablet y desktop) */
-    .list-item-btn .arrow-icon {
-        display: none;
-    }
-
-    /* Estilo de la TAB ACTIVA (el botón de la izquierda) */
-    .list-item-btn.active {
-        background-color: var(--color-light-blue); /* #DDFFFF */
-        color: var(--color-primary-dark);
-        border-color: transparent;
-    }
-
-    .list-item-btn.active .list-item-header {
-        background-color: transparent;
-        border-bottom: none;
-        color: var(--color-primary-dark);
-    }
-}
-
-
-/* --- Ordenadores (1024px y más) --- */
-@media (min-width: 1024px) {
-    .hero-image-mobile {
         display: block;
     }
-    .tab-image{
-    display: block; /* Mostrar imagen de tab en desktop */
+    .list-item-btn .arrow-icon {
+        display: inline-block;
+        transform: rotate(0deg);
+    }
+    .list-item-btn.active .arrow-icon {
+        transform: rotate(90deg);
+    }
+    .tab-image { /* Image inside the accordion pane */
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
 }
+
+
+/* --- Desktops (1307px and up) --- */
+@media (min-width: 1307px) {
     /* Hero Section */
     .hero-section {
         padding: 120px 0;
         background-image: url('./assets/background.png');
         background-repeat: no-repeat;
-        background-size: 597px 349px; /* Tamaño exacto de la forma de fondo */
+        background-size: 597px 349px;
         background-position: top right;
         min-height: 700px;
         display: flex;
@@ -442,7 +420,6 @@ p {
         align-items: center;
         text-align: left;
     }
-
     .hero-section .container {
         display: flex;
         flex-direction: column;
@@ -455,32 +432,26 @@ p {
         position: relative;
         z-index: 1;
     }
-
     .hero-section .logo {
         margin-bottom: 80px;
         margin-left: 0;
     }
-
     .hero-content {
         padding-right: 0;
         padding-left: 0;
         text-align: left;
     }
-
     .hero-content h1 {
         font-size: 48px;
         padding: 0;
     }
-
     .hero-content p {
         font-size: 16px;
         padding: 0;
     }
-    
     .btn {
         margin-left: 0;
     }
-
     .hero-image-wrapper {
         display: block;
         flex: 1;
@@ -494,58 +465,81 @@ p {
         z-index: 2;
         overflow: hidden;
     }
-
     .hero-image-desktop {
         display: block;
         width: 100%;
         height: auto;
         object-fit: contain;
     }
+    .hero-image-mobile {
+        display: block; /* Still visible if needed in desktop, but usually hidden or responsive */
+    }
 
 
-    /* --- Sección Inferior - Mantiene el layout de Tabs --- */
+    /* Info Section: Tab Layout for Desktop */
     .info-section {
         padding: 100px 0;
         min-height: 374.58px;
     }
-
-    /* El .container de info-section ya es un flex column,
-       lo que permite que h2 e info-content se apilen.
-       Ahora, vamos a alinear todo a la izquierda. */
     .info-section .container {
         display: flex;
-        flex-direction: column; /* Apila el h2 y el info-content */
-        align-items: flex-start; /* ALINEA TODO A LA IZQUIERDA del contenedor */
+        flex-direction: column;
+        align-items: flex-start;
         width: 90%;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0;
     }
-
     .info-section h2 {
         font-size: 36px;
-        text-align: left; /* El texto dentro del h2 sigue alineado a la izquierda */
-        /* Ajustar el ancho del h2 para que coincida con la columna izquierda */
-        width: 400px; /* Ancho fijo de la columna info-media */
-        max-width: 400px; /* Asegurar que no se expanda */
-        margin-left: 0; /* Asegurar que no tenga margen izquierdo automático */
-        margin-right: auto; /* Empujar el resto del espacio a la derecha */
-        margin-bottom: 30px; /* Espacio entre el h2 y la caja de la imagen */
+        text-align: left;
+        width: 400px;
+        max-width: 400px;
+        margin-left: 0;
+        margin-right: auto;
+        margin-bottom: 30px;
     }
-
     .info-content {
-        gap: 80px; /* Espacio entre info-media y info-selectors */
+        gap: 80px;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start; /* Alinea los elementos al inicio de la línea (izquierda) */
+        flex-direction: row; /* Desktop layout: Image beside selectors */
+        justify-content: flex-start;
         align-items: flex-start;
-        width: 100%; /* Ocupa todo el ancho disponible del .container */
+        width: 100%;
     }
     
-    .info-media {
-        flex: 0 0 400px; /* Ancho fijo para la imagen del portátil */
+    /* Display Desktop-specific elements */
+    .info-main-content {
+        background-color: transparent; 
+        border-radius: 16px; 
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    
+    }
+    .desktop-tab-content {
+        display: block; 
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Critical: Make the main tab image visible for desktop */
+    .desktop-tab-content .tab-image {
+        display: block;
+        width: 720px; 
+        height: 374.59px; 
+        border-radius: 16px;
+        object-fit: contain;
+    }
+    .info-media { /* If info-media is used, ensure it's displayed in desktop */
+        display: block;
+        flex: 0 0 400px;
         max-width: 400px;
-        height: 320px; /* Alto fijo */
+        height: 320px;
         padding: 30px;
         background-color: var(--color-primary-dark);
         border-radius: 8px;
@@ -553,12 +547,55 @@ p {
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
+    /* Info Selectors (Tabs in Desktop) */
     .info-selectors {
-        flex: 1; /* Ocupa el resto del espacio */
-        max-width: calc(100% - 400px - 80px); /* Ajusta a su ancho restante */
+        flex: 1;
+        max-width: calc(100% - 400px - 80px);
         padding: 0;
         gap: 0;
         border-radius: 8px;
         overflow: hidden;
+        border: none;
+        box-shadow: none;
+    }
+    .info-selectors .list-item-btn {
+        background-color: var(--color-white);
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        margin-bottom: 0;
+        border-bottom: 1px solid #eeeeee; /* Border between tab items */
+    }
+    .info-selectors .list-item-btn:last-child {
+        border-bottom: none;
+    }
+    .list-item-header {
+        padding: 16px 20px;
+        border-bottom: none;
+        color: var(--color-primary-dark);
+        font-size: 16px;
+        line-height: 20px;
+        justify-content: flex-start;
+    }
+    .list-item-header h3 {
+        font-size: 16px;
+        margin: 0;
+    }
+    /* Hide accordion specific elements in Desktop */
+    .list-item-btn .tab-pane {
+        display: none;
+    }
+    .list-item-btn .arrow-icon {
+        display: none;
+    }
+    /* Active tab style */
+    .list-item-btn.active {
+        background-color: var(--color-light-blue);
+        border-color: transparent;
+    }
+    .list-item-btn.active .list-item-header {
+        background-color: transparent;
+        border-bottom: none;
+        color: var(--color-primary-dark);
     }
 }
